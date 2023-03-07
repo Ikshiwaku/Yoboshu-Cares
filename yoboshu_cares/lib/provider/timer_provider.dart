@@ -8,6 +8,7 @@ class TimerProvider with ChangeNotifier{
   bool _switchValue = true;
   bool _buttonData = true;
   bool _buttonState = true;
+   Duration _oneSec = Duration(seconds: 1);
 
   int get dotNum => _dotNum;
   int get timer => _timer;
@@ -30,9 +31,8 @@ class TimerProvider with ChangeNotifier{
   }
 
   void setTimer(){
-      const oneSec = Duration(seconds: 1);
       Timer _time = Timer.periodic(
-        oneSec,
+        _oneSec,
             (Timer time) {
           if (timer == 0) {
               time.cancel();
